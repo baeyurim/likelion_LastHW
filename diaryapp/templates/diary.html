@@ -1,0 +1,36 @@
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<h1>HELLO WORLD</h1>
+
+<br><br>
+
+<body>
+  <div id="map" style="width:100%;height:350px;"></div>
+  <p>
+  <button onclick="setZoomable(false)">지도 확대/축소 끄기</button>
+  <button onclick="setZoomable(true)">지도 확대/축소 켜기</button>
+  </p>
+  
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0170c7e8e187d6256f488eaeaad3565"></script>
+  <script>
+  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+      mapOption = { 
+          center: new daum.maps.LatLng(37.6063202,127.0396193,17), // 지도의 중심좌표
+           // draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+          level: 3 // 지도의 확대 레벨
+      };
+  
+  var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+          
+  // 버튼 클릭에 따라 지도 확대, 축소 기능을 막거나 풀고 싶은 경우에는 map.setZoomable 함수를 사용합니다
+  function setZoomable(zoomable) {
+      // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+      map.setZoomable(zoomable);    
+  }
+  </script>
+  </body>
